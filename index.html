@@ -6,12 +6,13 @@
     <title>عبادة مؤمن الشربجي - السيرة الذاتية</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Cairo', sans-serif;
             line-height: 1.6;
             color: #333;
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+            direction: rtl;
         }
         .container {
             max-width: 800px;
@@ -24,11 +25,13 @@
         h1 {
             text-align: center;
             color: #444;
+            margin-bottom: 20px;
         }
         h2 {
             color: #555;
             border-bottom: 2px solid #eee;
             padding-bottom: 5px;
+            margin-bottom: 10px;
         }
         .section {
             margin-bottom: 20px;
@@ -36,15 +39,67 @@
         .contact, .skills {
             display: flex;
             justify-content: space-between;
+            flex-wrap: wrap;
         }
-        .skills div {
+        .skills div, .contact div {
             width: 45%;
+            margin-bottom: 10px;
         }
         .contact div {
-            width: 100%;
             text-align: center;
         }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li::before {
+            content: "✔️";
+            margin-right: 8px;
+            color: green;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background: #444;
+            color: #fff;
+        }
+        .contact-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #444;
+            color: #fff;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .contact-icon:hover {
+            background: #555;
+        }
+        .contact-info {
+            display: none;
+            position: fixed;
+            bottom: 70px;
+            right: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .contact-info.active {
+            display: block;
+        }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        function toggleContactInfo() {
+            var contactInfo = document.getElementById('contact-info');
+            contactInfo.classList.toggle('active');
+        }
+    </script>
 </head>
 <body>
     <div class="container">
@@ -85,15 +140,19 @@
                 </div>
             </div>
         </div>
-        <div class="section">
-            <h2>📞 تفاصيل الاتصال</h2>
-            <div class="contact">
-                <div>
-                    <p>📞 رقم الهاتف: +962 7 7917 5693</p>
-                    <p>📧 البريد الإلكتروني: obadamomen1@gmail.com</p>
-                </div>
-            </div>
-        </div>
+    </div>
+    <footer>
+           © 2024 عبادة مؤمن الشربجي
+           <br>
+           تابعني على <a href="https://www.instagram.com/obada_alshurbaji/">إنستجرام</a>
+    </footer>
+    <div class="contact-icon" onclick="toggleContactInfo()">📞</div>
+    <div id="contact-info" class="contact-info">
+        <h2>📞 تفاصيل الاتصال</h2>
+        <ul>
+            <li>📞 +962 7 9917 5693</li>
+            <li>📧 obadamomen1@gmail.com</li>
+        </ul>
     </div>
 </body>
 </html>
